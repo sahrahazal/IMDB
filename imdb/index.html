@@ -9,7 +9,19 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="movies"></div>
-    <script src="main.js"></script>
+    <input class="keyword" type="text" placeholder="Ara:"/>
+  <button class="search">ARA</button>
+  <div class="movies"></div>
+  <script type="module">
+    import IMDB from './main.js';
+    var searchInput = document.querySelector(".keyword");
+    var searchBtn = document.querySelector(".search");
+    searchBtn.addEventListener("click", () => {
+      searchBtn.disabled = true;
+      searchBtn.style = "background: #272727;";
+      new IMDB(".movies").searchWithAxios(searchInput.value);
+    });
+    
+  </script>
 </body>
 </html>
